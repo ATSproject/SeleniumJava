@@ -1,0 +1,16 @@
+package BasicsSelenium;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Working_with_Excel {
+	
+	public static void main(String[] args) throws IOException {
+		InputStream xlfile = new FileInputStream("D:\\SeleniumJava\\SampleProject\\src\\test\\resources\\DataFiles\\EmpManagement.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(xlfile);
+	}
+
+}

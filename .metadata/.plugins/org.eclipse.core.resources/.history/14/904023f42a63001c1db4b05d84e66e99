@@ -1,0 +1,12 @@
+package basics_1;
+
+public class Sample {
+	
+	public void tc1() {
+		System.out.println("print current method");
+	}
+	public void tc2() {
+		System.out.println("print second method");
+	}
+
+}

@@ -1,0 +1,109 @@
+package BasicsSelenium;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+/*import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
+
+public class Working_With_Excel {
+	
+	
+	public static void main(String[] args) throws IOException {
+		InputStream xlfiile = new FileInputStream("D:\\SeleniumJava\\SampleProject\\src\\test\\resources\\DataFiles\\EmpManagement.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(xlfiile);
+		XSSFSheet sheet= wb.getSheet("CreateEmp");
+		XSSFRow row = sheet.getRow(1);
+		XSSFCell cell = row.getCell(4);
+		String val =cell.toString();
+		System.out.println(val);
+		wb.close();
+		
+	}
+	/*private static XSSFWorkbook wb;
+	private static XSSFSheet sheet;
+	
+
+	public static void main(String[] args) throws IOException, FieldInDataNotFoundException{
+		String tcid= "emid04";
+		try {
+			InputStream xlpath = new FileInputStream("D:\\SeleniumJava\\SampleProject\\src\\test\\resources\\DataFiles\\EmpManagement.xlsx");
+			try {
+				 wb = new XSSFWorkbook(xlpath);
+				 sheet = wb.getSheet("CreateEmp");
+				XSSFRow row = sheet.getRow(getRowByIndex(tcid));
+			
+				System.out.println(row.getCell(1).toString());
+				
+			}finally {
+				wb.close();	
+			}			
+			
+		} catch (IOException e) {
+			System.out.println("unable to read data from given file");
+		}
+
+	}
+	public static int getRowByIndex(String tc_ID) throws FieldInDataNotFoundException {
+		int rowPos=-1;
+		int rowIndex =  sheet.getLastRowNum(); 
+		int tcCell =  getCellByIndex("TC_ID");
+		for(int i=1; i<=rowIndex;i++) {
+		XSSFCell tcPos=	 sheet.getRow(i).getCell(tcCell);
+		if(tcPos !=null) {
+			String value=tcPos.toString();
+			if(value.trim().equalsIgnoreCase(tc_ID.trim())) {
+				rowPos=i;
+				break;
+				
+			}
+		}
+			
+		}
+		
+		
+		return rowPos;	
+	}
+ public static int getCellByIndex(String colHeader) throws FieldInDataNotFoundException {
+	 
+	 int colPos=-1;
+	 
+	    	XSSFRow rowHeader =	sheet.getRow(0);
+	    	  int totalcell= rowHeader.getLastCellNum();
+	    	  for(int i=0;i<=totalcell-1;i++) {
+	    		   XSSFCell cellHeader= rowHeader.getCell(i);
+	    		   if(cellHeader !=null) {
+	    	String cellvalue = cellHeader.toString();
+	    	if(cellvalue.trim().equalsIgnoreCase(colHeader.trim())) {
+	    		colPos=i;
+	    		break;
+	    		
+	    	}
+	    			   
+	    		   }
+	    		  
+	    	  }
+	    	  if(colPos==-1) {
+	    		  throw new FieldInDataNotFoundException("unable to find the given header"+colHeader );
+	    		  
+	    	  }
+	    	  
+	 
+	 return colPos;
+	 
+	 
+ }*/
+
+}

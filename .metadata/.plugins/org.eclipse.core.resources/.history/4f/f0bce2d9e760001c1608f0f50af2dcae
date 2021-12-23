@@ -1,0 +1,24 @@
+package BasicsSelenium;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class Working_with_Excel {
+	
+	public static void main(String[] args) throws IOException {
+		InputStream xlfile = new FileInputStream("D:\\SeleniumJava\\SampleProject\\src\\test\\resources\\DataFiles\\EmpManagement.xlsx");
+		XSSFWorkbook wb = new XSSFWorkbook(xlfile);
+		XSSFSheet sheet = wb.getSheet("CreateEmp");
+		XSSFRow row = sheet.getRow(0);
+		XSSFCell cell = row.getCell(1);
+		     String val= cell.toString();
+		     System.out.println(val);
+	}
+
+}

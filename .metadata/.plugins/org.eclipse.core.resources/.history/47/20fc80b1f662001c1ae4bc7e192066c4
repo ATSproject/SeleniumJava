@@ -1,0 +1,38 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
+
+public class Driver {
+
+	private static WebDriver driver;
+	privare static String mainwindowhandle;
+	
+	
+	public void  closeCurrentWindow() {
+		try {
+			driver.close();
+		}catch(WebDriverException e){
+			System.out.println("current window is already closed..");
+		}
+	}
+	
+	
+	 public void switchToMainWindow() {
+		 driver.switchTo().window(mainwindowhandle);
+	 }
+	 
+	 
+	 public void closeCurrentWin_switchToMian() {
+		 closeCurrentWin_switchToMian();
+		 switchToMainWindow();
+	 }
+	 
+	 public static void quitDriver() {
+		 try {
+			 driver.quit();
+		 }catch(Exception e) {
+			 System.out.println("driver is already terminated..");
+			 
+		 }
+	 }
+		
+}
